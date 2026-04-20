@@ -1,0 +1,21 @@
+cd ~/dev/dsa
+cat > .gitignore << 'EOF'
+# Compiled binaries (Code Runner output)
+*
+!*/
+!*.cpp
+!*.h
+!*.hpp
+!*.md
+!.gitignore
+!.vscode/
+!.vscode/*.json
+
+# OS files
+.DS_Store
+
+# Build artifacts
+*.o
+*.out
+*.exe
+EOF
