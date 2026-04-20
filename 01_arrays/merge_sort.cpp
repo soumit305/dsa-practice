@@ -14,7 +14,6 @@ class Solution {
         int i = 0, j = 0;
         vector<int> ans;
 
-        // helper to add only if not duplicate of last added
         auto addIfNew = [&](int val) {
             if (ans.empty() || ans.back() != val) {
                 ans.push_back(val);
@@ -28,20 +27,18 @@ class Solution {
             } else if (a[i] > b[j]) {
                 addIfNew(b[j]);
                 j++;
-            } else {  // equal — take one, advance both
+            } else {
                 addIfNew(a[i]);
                 i++;
                 j++;
             }
         }
 
-        // drain remainder of a
         while (i < n) {
             addIfNew(a[i]);
             i++;
         }
 
-        // drain remainder of b
         while (j < m) {
             addIfNew(b[j]);
             j++;
