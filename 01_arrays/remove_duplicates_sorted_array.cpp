@@ -13,15 +13,20 @@ using namespace std;
 //
 // Time: O(n), Space: O(1)
 
-class Solution {
+class Solution
+{
 public:
     // function signature here
-    int removeDuplicates(vector<int>& arr){
+    int removeDuplicates(vector<int> &arr)
+    {
         int len = arr.size();
-        if (len < 2) return len;
+        if (len < 2)
+            return len;
         int write = 0;
-        for (int read : arr){
-            if (read != arr[write]){
+        for (int read : arr)
+        {
+            if (read != arr[write])
+            {
                 write++;
                 arr[write] = read;
             }
@@ -30,18 +35,20 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     // test cases
     Solution s;
-    
+
     vector<int> a1 = {1, 1, 2, 2, 3, 4, 4};
     int k1 = s.removeDuplicates(a1);
     cout << "Test 1: k = " << k1 << ", arr = [";
-    for (int i = 0; i < k1; i++) {
+    for (int i = 0; i < k1; i++)
+    {
         cout << a1[i] << (i == k1 - 1 ? "" : ", ");
     }
     cout << "]" << endl;
     // Expected: k = 4, arr = [1, 2, 3, 4]
-    
+
     return 0;
 }

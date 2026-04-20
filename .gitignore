@@ -10,6 +10,7 @@ cat > .gitignore << 'EOF'
 !.gitignore
 !.vscode/
 !.vscode/*.json
+!.clang-format
 
 # OS files
 .DS_Store
