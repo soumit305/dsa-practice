@@ -50,19 +50,15 @@ void printLL(Node* head) {
 Node* reverseDLL(Node* head) {
     if (head == nullptr || head->next == nullptr)
         return head;
-    Node* prev = head;
-    head = head->next;
-    while (head->next) {
-        prev->next = prev->prev;
-        prev->prev = head;
-        prev = head;
-        head = head->next;
+    Node* last = nullptr;
+    Node* curr = head;
+    while (curr) {
+        last = curr->prev;
+        curr->prev = curr->next;
+        curr->next = last;
+        curr = curr->prev;
     }
-    prev->next = prev->prev;
-    prev->prev = head;
-    head->next = prev;
-    head->prev = nullptr;
-    return head;
+    return last->prev;
 }
 
 int main() {
