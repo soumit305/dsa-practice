@@ -28,21 +28,20 @@ TreeNode* convertArrayToTree(vector<int>& arr) {
 bool findPath(TreeNode* root, int target, vector<int>& ans) {
     if (root == nullptr)
         return false;
+    ans.push_back(root->val);
     if (root->val == target) {
-        ans.push_back(root->val);
         return true;
     }
     if (findPath(root->left, target, ans) || findPath(root->right, target, ans)) {
-        ans.push_back(root->val);
         return true;
     }
+    ans.pop_back();
     return false;
 }
 
 vector<int> rootToNodePath(TreeNode* root, int target) {
     vector<int> ans;
     findPath(root, target, ans);
-    reverse(ans.begin(), ans.end());
     return ans;
 }
 
