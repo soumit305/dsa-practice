@@ -33,12 +33,12 @@ void childSumProperty(TreeNode* root) {
         child += root->left->val;
     if (root->right)
         child += root->right->val;
-    if (child > root->val)
+    if (child >= root->val)
         root->val = child;
     else {
         if (root->left)
             root->left->val = root->val;
-        else if (root->right)
+        if (root->right)
             root->right->val = root->val;
     }
     childSumProperty(root->left);
