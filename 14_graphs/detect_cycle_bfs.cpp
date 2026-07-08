@@ -13,14 +13,14 @@ class Solution {
         }
         for (int i = 0; i < V; i++) {
             if (!visited[i]) {
-                if (detectCycle(adj, V, visited, i))
+                if (detectCycleBFS(adj, V, visited, i))
                     return true;
             }
         }
         return false;
     }
 
-    bool detectCycle(vector<vector<int>> adj, int V, vector<int>& visited, int source) {
+    bool detectCycleBFS(vector<vector<int>> adj, int V, vector<int>& visited, int source) {
         visited[source] = 1;
         queue<pair<int, int>> q;
         q.push({source, -1});
