@@ -29,11 +29,11 @@ class Solution {
             int weight = it.first;
             int node = it.second.first;
             int parent = it.second.second;
-            if (!visited[node]) {
-                visited[node] = 1;
-                mstEdges.push_back({node, parent});
-                sum += weight;
-            }
+            if (visited[node])
+                continue;
+            visited[node] = 1;
+            mstEdges.push_back({node, parent});
+            sum += weight;
             for (auto adjacent : adj[node]) {
                 int nnode = adjacent.first;
                 int nweight = adjacent.second;
